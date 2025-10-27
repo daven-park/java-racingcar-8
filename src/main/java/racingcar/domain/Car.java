@@ -14,7 +14,7 @@ public class Car {
     public void move(){
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if (randomNumber >= 4){
-        this.carMoveCount++;
+            this.carMoveCount++;
         }
     }
 
