@@ -22,4 +22,8 @@ public class OutputView {
         System.out.println(WINNER_RESULT_OUTPUT + winnerNameList);
     }
 
+    public void printResultMessage(){
+        System.out.println("\n실행 결과");
+    }
+
 }
