@@ -24,7 +24,7 @@ public class InputView {
     }
 
     public int readCount(){
-        System.out.println(TRY_COUNT_ERROR_MESSAGE);
+        System.out.println(TRY_COUNT_INPUT_MESSAGE);
         String tryCountStr = Console.readLine();
 
         validateTryCountCheck(tryCountStr);
