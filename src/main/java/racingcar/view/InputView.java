@@ -3,7 +3,9 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class InputView {
@@ -32,16 +34,21 @@ public class InputView {
     }
 
     public void validateNameCheck(List<String> carNames){
+        Set<String> duplicationCheck = new HashSet<>();
         for (String str : carNames){
-            if (str.trim().isEmpty() || str.trim().length() > 5){
+            if (str.trim().isEmpty() || str.trim().length() > 5 || duplicationCheck.contains(str)){
                 throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
             }
+            duplicationCheck.add(str);
         }
     }
 
     public void validateTryCountCheck(String str){
         try{
-            Integer.parseInt(str);
+            int tryCount = Integer.parseInt(str);
+            if (tryCount <= 0){
+                throw new IllegalArgumentException(TRY_COUNT_ERROR_MESSAGE);
+            }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(TRY_COUNT_ERROR_MESSAGE);
         }
